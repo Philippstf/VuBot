@@ -11,6 +11,10 @@ from time import sleep
 from openai import OpenAI
 import openai
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ─── Konfiguration ─────────────────────────────────────────────────────────────
 OPENAI_EMBED_API_KEY = openai.api_key = os.getenv("OPENAI_EMBED_API_KEY")
 EMBED_MODEL         = "text-embedding-3-small"

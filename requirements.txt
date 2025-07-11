@@ -1,2 +1,10 @@
 requests
-bs4
+beautifulsoup4
+streamlit
+playwright
+openai
+faiss-cpu
+numpy
+python-dotenv
+sqlalchemy
+alembic

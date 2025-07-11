@@ -8,6 +8,10 @@ import re
 from openai import OpenAI
 import openai
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # ─── Konfiguration ────────────────────────────────────────────────────────────
 
 EMBED_API_KEY   = openai.api_key = os.getenv("OPENAI_EMBED_API_KEY")
@@ -59,27 +63,50 @@ def retrieve_chunks(question: str, top_k: int = 5) -> list[dict]:
     _, I = index.search(qvec, top_k)
     return [chunks[i] for i in I[0]]
 
+# ─── System-Prompt nach Kundenservice-Best Practices ───────────────────────────
+
+SYSTEM_PROMPT = """Du bist der freundliche VuWall-Kundendienstassistent.
+Deine Aufgabe:
+• Antworte stets präzise, empathisch und serviceorientiert.
+• Gib klare, knapp formulierte Antworten in Deutsch.
+• Wenn Details fehlen, bitte proaktiv um genauere Angaben.
+• Biete immer eine Eskalation an („Möchtest Du mehr Infos oder Kontakt zu einem Berater?“).
+• Bewahre stets einen professionellen, aber sympathischen Ton.
+• Berücksichtige den Gesprächsverlauf und beziehe dich auf vorherige Nachrichten wenn relevant.
+
+Nutze nur die folgenden kontextuellen Informationen aus der VuWall-Wissensbasis. 
+Wenn Du die Antwort nicht findest, entschuldige Dich kurz und schlage nachfolgende Aktionen vor:
+1) Bitte um eine genauere Frage
+2) Biete Live-Support (Telefon/E-Mail) an."""
+
 # ─── Prompt bauen ───────────────────────────────────────────────────────────────
 
-def build_system_prompt(context: list[dict], user_q: str) -> list[dict]:
-    ctx_text = "\n\n---\n\n".join([c["text"] for c in context])
+def build_system_prompt(context: list[dict], user_q: str, chat_history: list[dict] = None) -> list[dict]:
+    ctx_text = "\n\n---\n\n".join(c["text"] for c in context)
+    
+    # Build messages array mit System-Prompt
+    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    
+    # Füge Chat-Historie hinzu (letzte 8 Nachrichten)
+    if chat_history:
+        messages.extend(chat_history[-8:])
+    
+    # Aktueller RAG-Kontext wird als User-Message hinzugefügt
     user_content = (
-        "Beantworte die Frage **präzise** und **sachlich** auf Deutsch.\n\n"
         f"Frage:\n{user_q}\n\n"
-        "Verfügbare Informationen aus der VuWall-Wissensbasis:\n"
+        "Verfügbare Infos aus der VuWall-Wissensbasis:\n"
         f"{ctx_text}\n\n"
         "Antwort:"
     )
-    return [
-        {"role": "system", "content": "Du bist ein hilfreicher VuWall-Assistent."},
-        {"role": "user",   "content": user_content}
-    ]
+    messages.append({"role": "user", "content": user_content})
+    
+    return messages
 
 # ─── Hauptfunktion: Frage → Antwort ─────────────────────────────────────────────
 
-def ask_bot(question: str) -> str:
+def ask_bot(question: str, chat_history: list[dict] = None) -> str:
     relevant = retrieve_chunks(question, top_k=5)
-    messages = build_system_prompt(relevant, question)
+    messages = build_system_prompt(relevant, question, chat_history)
     resp = router_client.chat.completions.create(
         model=LLM_MODEL,
         messages=messages,
@@ -87,6 +114,42 @@ def ask_bot(question: str) -> str:
         max_tokens=512,
     )
     return resp.choices[0].message.content.strip()
+
+def ask_bot_with_context(question: str, conversation_id: int = None) -> tuple[str, str]:
+    """
+    Erweiterte ask_bot Funktion mit Konversations-Kontext
+    Returns: (answer, embedding_context)
+    """
+    # Hol Chat-Historie wenn conversation_id gegeben
+    chat_history = []
+    if conversation_id:
+        import sys
+        import os
+        sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        from database.service import chat_service
+        recent_messages = chat_service.get_recent_messages(conversation_id, limit=8)
+        chat_history = [
+            {"role": msg.role, "content": msg.content} 
+            for msg in recent_messages
+        ]
+    
+    # RAG-Retrieval
+    relevant = retrieve_chunks(question, top_k=5)
+    embedding_context = "; ".join(c.get("page_title", "unknown") for c in relevant)
+    
+    # Build messages mit Chat-Historie
+    messages = build_system_prompt(relevant, question, chat_history)
+    
+    # LLM-Call
+    resp = router_client.chat.completions.create(
+        model=LLM_MODEL,
+        messages=messages,
+        temperature=0.2,
+        max_tokens=512,
+    )
+    
+    answer = resp.choices[0].message.content.strip()
+    return answer, embedding_context
 
 # ─── Selbsttest ────────────────────────────────────────────────────────────────
 
