@@ -7,7 +7,8 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from ask_bot import ask_bot_with_context
-from storage.local_chat_manager import local_chat_manager
+from database.supabase_service import supabase_chat_service
+from storage.device_id import get_device_id
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -77,62 +78,85 @@ st.set_page_config(
 
 # ─── Session State Initialisierung ──────────────────────────────────────────────
 
-# Browser-basierte Device-ID (ersetzt user_id)
+# Device-ID für GDPR-konforme Identifikation
 if "device_id" not in st.session_state:
-    from storage.device_id import get_device_id
     st.session_state.device_id = get_device_id()
 
-# Initialisiere LocalStorage Session State
-if "local_conversations" not in st.session_state:
-    st.session_state.local_conversations = []
-
-if "current_conversation_id" not in st.session_state:
-    st.session_state.current_conversation_id = None
-
+# Session State für aktuellen Chat
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# Lade Chat-Daten aus Browser Storage beim ersten Start
-if "storage_loaded" not in st.session_state:
-    # Debug: Zeige Loading Status
-    with st.spinner("Lade Chat-Verlauf..."):
-        local_chat_manager.load_from_browser()
-    st.session_state.storage_loaded = True
-    
-    # Debug Info zeigen
-    if st.session_state.local_conversations:
-        st.info(f"✅ {len(st.session_state.local_conversations)} Chat(s) wiederhergestellt!")
+if "current_conversation" not in st.session_state:
+    st.session_state.current_conversation = None
+
+# Supabase-Verbindung initialisieren
+if "supabase_initialized" not in st.session_state:
+    with st.spinner("Verbindung zur Datenbank..."):
+        if supabase_chat_service.ensure_connection():
+            st.session_state.supabase_initialized = True
+            # Lade oder erstelle aktuelle Konversation
+            conversation = supabase_chat_service.get_or_create_conversation(
+                device_id=st.session_state.device_id,
+                title="Neue Unterhaltung"
+            )
+            if conversation:
+                st.session_state.current_conversation = conversation
+                # Lade Messages der aktuellen Konversation
+                messages = supabase_chat_service.get_conversation_messages(conversation['id'])
+                st.session_state.messages = [
+                    {"role": msg["role"], "content": msg["content"]}
+                    for msg in messages
+                ]
+                if messages:
+                    st.success(f"✅ Chat mit {len(messages)} Nachrichten geladen!")
+        else:
+            st.error("❌ Datenbankverbindung fehlgeschlagen")
+            st.session_state.supabase_initialized = False
 
 # ─── Helper Functions ────────────────────────────────────────────────────────────
 
 def get_or_create_conversation():
-    """Holt oder erstellt eine Konversation (LocalStorage)"""
-    conversation = local_chat_manager.get_current_conversation()
-    return conversation["id"]
+    """Holt oder erstellt eine Konversation (Supabase)"""
+    if st.session_state.current_conversation:
+        return st.session_state.current_conversation["id"]
+    
+    # Erstelle neue Konversation
+    conversation = supabase_chat_service.get_or_create_conversation(
+        device_id=st.session_state.device_id,
+        title="Neue Unterhaltung"
+    )
+    if conversation:
+        st.session_state.current_conversation = conversation
+        return conversation["id"]
+    return None
 
-def load_conversation_messages(conversation_id: int):
-    """Lädt Nachrichten aus LocalStorage in Session State"""
-    messages = local_chat_manager.get_conversation_messages(conversation_id)
+def load_conversation_messages(conversation_id: str):
+    """Lädt Nachrichten aus Supabase in Session State"""
+    messages = supabase_chat_service.get_conversation_messages(conversation_id)
     st.session_state.messages = [
         {"role": msg["role"], "content": msg["content"]}
         for msg in messages
     ]
 
 def save_message(role: str, content: str, embedding_context: str = None):
-    """Speichert eine Nachricht im LocalStorage"""
-    local_chat_manager.add_message(
-        role=role,
-        content=content,
-        embedding_context=embedding_context
-    )
+    """Speichert eine Nachricht in Supabase"""
+    if st.session_state.current_conversation:
+        supabase_chat_service.add_message(
+            conversation_id=st.session_state.current_conversation["id"],
+            role=role,
+            content=content,
+            embedding_context=embedding_context
+        )
 
 def start_new_conversation():
     """Startet eine neue Konversation"""
-    conversation = local_chat_manager.create_conversation(
-        title=f"Chat {len(local_chat_manager.get_all_conversations()) + 1}"
+    conversation = supabase_chat_service.create_conversation(
+        device_id=st.session_state.device_id,
+        title="Neue Unterhaltung"
     )
-    st.session_state.messages = []
-    # Session State wird automatisch durch local_chat_manager aktualisiert
+    if conversation:
+        st.session_state.current_conversation = conversation
+        st.session_state.messages = []
 
 def generate_conversation_title(first_question: str) -> str:
     """Generiert einen aussagekräftigen Titel basierend auf der ersten Frage"""
@@ -181,19 +205,19 @@ with st.sidebar:
         start_new_conversation()
         st.rerun()
     
-    # Zeige verfügbare Konversationen (LocalStorage)
-    conversations = local_chat_manager.get_all_conversations(limit=10)
+    # Zeige verfügbare Konversationen (Supabase)
+    conversations = supabase_chat_service.get_user_conversations(st.session_state.device_id, limit=10)
     
     if conversations:
         st.subheader("Letzte Chats")
         for conv in conversations:
             # Zeige Konversation mit Button
-            button_text = conv["title"] or f"Chat {conv['id']}"
+            button_text = conv["title"] or f"Chat {conv['id'][:8]}..."
             if len(button_text) > 30:
                 button_text = button_text[:27] + "..."
             
-            current_conv = local_chat_manager.get_current_conversation()
-            is_current = conv["id"] == current_conv["id"]
+            is_current = (st.session_state.current_conversation and 
+                         conv["id"] == st.session_state.current_conversation["id"])
             
             if st.button(
                 f"{'📍 ' if is_current else '💬 '}{button_text}",
@@ -201,25 +225,26 @@ with st.sidebar:
                 use_container_width=True,
                 type="primary" if is_current else "secondary"
             ):
-                local_chat_manager.switch_conversation(conv["id"])
+                # Wechsle zu dieser Konversation
+                st.session_state.current_conversation = conv
+                load_conversation_messages(conv["id"])
                 st.rerun()
     
     # Storage-Info und Clear-Button
     st.markdown("---")
-    st.caption(f"💾 Device: {st.session_state.device_id[:8]}...")
+    st.caption(f"🔒 Device: {st.session_state.device_id[:8]}...")
+    st.caption(f"🗄️ GDPR-konforme Supabase DB")
     
     # Storage Status
-    total_chats = len(st.session_state.local_conversations)
-    total_messages = sum(len(conv.get("messages", [])) for conv in st.session_state.local_conversations)
+    total_chats = len(conversations)
+    total_messages = len(st.session_state.messages)
     st.caption(f"📊 {total_chats} Chat(s), {total_messages} Nachrichten")
     
-    # URL-Persistenz Status
-    query_params = st.query_params
-    if "chat_data" in query_params:
-        st.caption("🔗 URL-Backup aktiv")
-    
     if st.button("🗑️ Alle Chats löschen", use_container_width=True, type="secondary"):
-        local_chat_manager.clear_all_data()
+        if supabase_chat_service.clear_all_conversations(st.session_state.device_id):
+            st.session_state.current_conversation = None
+            st.session_state.messages = []
+            st.success("✅ Alle Chats gelöscht (GDPR-konform)")
         st.rerun()
 
 # ─── Chat Interface ──────────────────────────────────────────────────────────────
@@ -227,10 +252,9 @@ with st.sidebar:
 # Ensure we have a conversation
 conversation_id = get_or_create_conversation()
 
-# Load messages for current conversation  
-current_conv = local_chat_manager.get_current_conversation()
-if not st.session_state.messages and current_conv["messages"]:
-    load_conversation_messages(current_conv["id"])
+# Load messages if not already loaded
+if not st.session_state.messages and st.session_state.current_conversation:
+    load_conversation_messages(st.session_state.current_conversation["id"])
 
 # Display chat messages mit custom Styling
 for message in st.session_state.messages:
@@ -263,7 +287,7 @@ if prompt := st.chat_input("Stelle deine Frage zu VuWall..."):
             # Update conversation title if this is the first message
             if len(st.session_state.messages) == 2:  # user + assistant
                 title = generate_conversation_title(prompt)
-                local_chat_manager.update_conversation_title(conversation_id, title)
+                supabase_chat_service.update_conversation_title(conversation_id, title)
             
         except Exception as e:
             error_msg = f"Entschuldigung, es ist ein Fehler aufgetreten: {str(e)}"

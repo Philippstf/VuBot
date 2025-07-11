@@ -115,7 +115,7 @@ def ask_bot(question: str, chat_history: list[dict] = None) -> str:
     )
     return resp.choices[0].message.content.strip()
 
-def ask_bot_with_context(question: str, conversation_id: int = None) -> tuple[str, str]:
+def ask_bot_with_context(question: str, conversation_id: str = None) -> tuple[str, str]:
     """
     Erweiterte ask_bot Funktion mit Konversations-Kontext
     Returns: (answer, embedding_context)
@@ -126,8 +126,8 @@ def ask_bot_with_context(question: str, conversation_id: int = None) -> tuple[st
         import sys
         import os
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        from storage.local_chat_manager import local_chat_manager
-        recent_messages = local_chat_manager.get_recent_messages(conversation_id, limit=8)
+        from database.supabase_service import supabase_chat_service
+        recent_messages = supabase_chat_service.get_recent_messages(conversation_id, limit=8)
         chat_history = [
             {"role": msg["role"], "content": msg["content"]} 
             for msg in recent_messages

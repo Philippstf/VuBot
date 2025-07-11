@@ -6,6 +6,5 @@ openai
 faiss-cpu
 numpy
 python-dotenv
-sqlalchemy
-alembic
-pillow
+supabase
+postgrest
