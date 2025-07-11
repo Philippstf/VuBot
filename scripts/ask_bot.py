@@ -126,10 +126,10 @@ def ask_bot_with_context(question: str, conversation_id: int = None) -> tuple[st
         import sys
         import os
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        from database.service import chat_service
-        recent_messages = chat_service.get_recent_messages(conversation_id, limit=8)
+        from storage.local_chat_manager import local_chat_manager
+        recent_messages = local_chat_manager.get_recent_messages(conversation_id, limit=8)
         chat_history = [
-            {"role": msg.role, "content": msg.content} 
+            {"role": msg["role"], "content": msg["content"]} 
             for msg in recent_messages
         ]
     

@@ -8,3 +8,4 @@ numpy
 python-dotenv
 sqlalchemy
 alembic
+pillow

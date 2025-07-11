@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VuWall Chat Persistence</title>
+</head>
+<body>
+    <div id="chat-persistence-container" style="display: none;"></div>
+    
+    <script>
+    // VuWall Chat Persistence Manager
+    class VuWallChatPersistence {
+        constructor(deviceId) {
+            this.deviceId = deviceId;
+            this.storageKey = `vuwall_chats_${deviceId}`;
+            this.initialized = false;
+        }
+        
+        // Speichere Chat-Daten
+        saveData(conversations, currentConversationId) {
+            try {
+                const data = {
+                    device_id: this.deviceId,
+                    timestamp: new Date().toISOString(),
+                    conversations: conversations,
+                    current_conversation_id: currentConversationId
+                };
+                
+                localStorage.setItem(this.storageKey, JSON.stringify(data));
+                console.log('✅ VuWall: Chat-Daten gespeichert', data);
+                return true;
+            } catch (e) {
+                console.error('❌ VuWall: Fehler beim Speichern', e);
+                return false;
+            }
+        }
+        
+        // Lade Chat-Daten
+        loadData() {
+            try {
+                const stored = localStorage.getItem(this.storageKey);
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    console.log('📂 VuWall: Chat-Daten geladen', data);
+                    return data;
+                }
+                console.log('ℹ️ VuWall: Keine gespeicherten Daten gefunden');
+                return null;
+            } catch (e) {
+                console.error('❌ VuWall: Fehler beim Laden', e);
+                return null;
+            }
+        }
+        
+        // Lösche alle Daten
+        clearData() {
+            try {
+                localStorage.removeItem(this.storageKey);
+                console.log('🗑️ VuWall: Alle Chat-Daten gelöscht');
+                return true;
+            } catch (e) {
+                console.error('❌ VuWall: Fehler beim Löschen', e);
+                return false;
+            }
+        }
+        
+        // Sende Daten an Streamlit
+        sendToStreamlit(data) {
+            // Erstelle Event für Streamlit
+            const event = new CustomEvent('vuwall_chat_restored', {
+                detail: data
+            });
+            window.dispatchEvent(event);
+            
+            // Auch über Window-Variable für Streamlit Components
+            window.vuwall_chat_data = data;
+        }
+        
+        // Initialisiere und lade beim Start
+        initialize() {
+            if (this.initialized) return;
+            
+            const data = this.loadData();
+            if (data) {
+                this.sendToStreamlit(data);
+            }
+            
+            this.initialized = true;
+        }
+    }
+    
+    // Globale Instanz erstellen
+    window.VuWallChat = VuWallChatPersistence;
+    
+    // Auto-Initialize wenn Device-ID verfügbar
+    function initializeWithDeviceId(deviceId) {
+        if (!window.vuwall_persistence) {
+            window.vuwall_persistence = new VuWallChatPersistence(deviceId);
+            window.vuwall_persistence.initialize();
+        }
+    }
+    
+    // Expose Initialize-Funktion
+    window.initVuWallChat = initializeWithDeviceId;
+    
+    console.log('🚀 VuWall Chat Persistence geladen');
+    </script>
+</body>
+</html>
