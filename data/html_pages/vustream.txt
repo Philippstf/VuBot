@@ -1,0 +1,133 @@
+VuStream Encoders & Decoders | Video Distribution | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+VuStream
+Video Encoding Appliances
+Get a Quote
+Book a demo
+1
+2
+3
+Delivering high quality video streams across your network.
+The VuStream series of video encoding appliances include a range various features, form factors and resolutions. Each unit is compatible with PAK and VuScape video wall processors and can be centrally configured and managed by TRx.
+VuStream Datasheet
+Performance Encoding
+Low latency, high performance up to 4:4:4 of 4K video streams
+IP KVM
+Ultra-low latency KVM control of local and remote sources.
+Centralized Management
+Single common configuration & operation platform
+Interoperable
+Compatible with 3rd party brands. Supports H.264, H.265, SRT, and more.
+Secure IP KVM Encoding
+Control your IP sources remotely with a keyboard & mouse with VuStream 350 –  a secure IP KVM encoder that delivers high-quality up to 4K video, over standard Gigabit Ethernet at low bitrates and ultra low latency.
+Learn more
+High Quality 4K60 Encoder
+VuStream 150 supports HDMI signals at resolutions up to 3840×2160@60Hz, 4:4:4 pass-through, 4:2:0 and 4:2:2 encoding & streaming, and PoE. It is compatible with PAK KVM and Video Wall Nodes, VuScape Controllers, and common software decoders like VLC.
+Learn more.
+Centralized Management
+Configure and operate all your VuStream encoders, PAK decoding nodes, and even your VuScape controller with TRx – a single, common management platform.
+Learn more about TRx.
+Here’s How VuStream Integrates Easily
+Selecting the Right Encoders
+VuStream Series
+150
+200
+350
+Max resolution
+3840x2160@60Hz
+4096x2160@60Hz
+4096x2160 @30Hz or
+1920x1200 @60Hz
+Quality
+4:2:0 or 4:2:2
+Up to 4:4:4
+4:2:0 or 4:4:4
+Format
+H.264
+H.264
+Proprietary
+Encryption
+N/A
+N/A
+AES-256 bit
+Network
+1 Gb
+1 Gb
+1 Gb
+IP KVM
+N/A
+N/A
+USB
+VuStream Applications
+Control Rooms
+Video Wall Control & KVM
+Increasing productivity with powerful, easy to use technology.
+Enterprise
+Multi-Source Visualization
+Bringing efficiency to meeting rooms and Security Operations Centers with productive collaboration.
+Experience Centers
+Versatile Display Management
+Captivating visitors with unforgettable visual experiences.
+Crisis Rooms
+Unified Visualization
+Making rapid, accurate and informed decisions.
+Lobby Signage
+Content Management & Distribution
+Easily manage and distribute content throughout multi-site organizations.
+Classrooms & Auditoriums
+Presentation & Collaboration
+Engage audiences with captivating visual content.
+Get a demo
+Get a quote
+VuStream Datasheet
+Extend the Power of VuStream
+Need to process video wall content?
+PAK
+Video Wall & KVM Nodes
+Learn more
+Need to manage several VuStreams?
+TRx
+Centralized Management
+Learn more
+Need video wall control at your fingertips?
+ControlVu
+Touch Panel
+Learn more
+VuWall is proud to be a Preferred Vendor Partner of the PSNI Global Alliance
+Talk to a video wall expert! We’re here to help!
+CONTACT US
+VuWall and G&D are proudly operating under the same ownership. Learn more about G&D’s world-class KVM solutions.
+Visit G&D
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×
+Close
+Close
+Close

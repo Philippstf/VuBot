@@ -1,0 +1,74 @@
+Certification | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+VuWall Certification
+Training Program
+Sign up for live online or in-person training and become a Certified VuWall Specialist.
+Complete this form and someone will contact you shortly with the next available course schedule.
+Duration: 3 days
+CTS RU Credits: 12
+TRAINING REQUEST FORM
+Course Description
+VuWall’s Certification Program is divided into three courses
+Level I: VuWall Designer
+LEARN MORE
+Graduates will be able to present VuWall’s entire line of solutions to potential end users and assist in designing a video wall, IP KVM, and AV distribution project. The course includes thorough examples of customer installations and detailed training on both software and hardware features and functionalities.
+Level II: VuWall Field Specialist
+LEARN MORE
+Graduates will be able to autonomously install, configure and operate VuWall products. This course begins with best practices for network considerations when designing and installing VuWalls solutions. The course continues with a deep dive into the planning, configuration, and operation of TRx with PAK, VuStream and other endpoints, as well as an introduction to scripting, API, and user management. The course concludes with the basics of system updates and troubleshooting.
+Level III: VuWall Service Specialist
+LEARN MORE
+Graduates will be able to autonomously repair and upgrade products on-site. This course completes the certification training enabling graduates to feel confident in being the end user’s first line of support for the PAK video wall & KVM nodes, VuStream encoders & decoders, and TRx management software. It includes a deep dive into the software installation & activation as well as handling updates, maintenance, sercivin, and troubleshooting.
+Course Objectives
+1. Enable trainees to present all VuWall solutions to end users and assist in a video wall and/or AV distribution project design.
+2. Enable trainees to deploy and operate PAK video wall nodes, VuScape controllers, and VuStream encoders/decoders using TRx multi-video wall management software.
+3. Enable trainees to troubleshoot and service VuWall solutions which may include card replacements, updating and reinstalling server drivers, managing backups, etc..
+VuWall Instructors
+Francisco Provencio
+Senior Sales Engineer
+Chris Benner
+Sales Engineer
+Jan Riegert
+Application Engineer
+Steven Rawlings
+Field Engineer
+David Schlüter
+Application Engineer
+Habib Jradi
+Application Engineer
+Find out about our Design Essentials Course
+Duration: 2 Hours
+CTS RU Credits: 1​
+LEARN MORE
+This course provides participants with in-depth knowledge of VuWall’s product portfolio, understanding the different solutions available and their key features. Topics include effectively converting customer requirements into practical design specifications and selecting the appropriate VuWall products. Participants will acquire a strong grasp of the core concepts for building video wall and IP KVM management systems, enabling them to address customer requirements and advance their design expertise.
+Control what you see.
+sales@vuwall.com
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×

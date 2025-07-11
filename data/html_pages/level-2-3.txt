@@ -1,0 +1,67 @@
+Certification Level 2 & 3 | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+VuWall Certification Training - Levels 2 & 3
+Sign up for live online or in-person training and become a Certified VuWall Field & Service Technician
+Duration: 2 days (16 hours)
+CTS RU Credits: 8
+SIGN UP
+Course Description
+Upon completion of this course, graduates will be able to deploy and troubleshoot VuWall’s video wall processors and TRx centralized management platform, autonomously. They will feel comfortable providing remote and on-site technical support to end users. This 2-day course is broken down into several modules including: networking considerations; planning, configuring and operating PAK video wall & KVM nodes, VuStream encoders & decoders, and the TRx platform; handling updates, maintenance, servicing and troubleshooting. Every course module includes a short quiz or hands-on exercises depending on the content.
+This course will include a series of quizzes that will require an 80% passing grade. Following a passing grade, trainees will receive a Certificate from VuWall that shall be submitted by the trainee to AVIXA in order to receive their CTS RU credits.
+Level 2 & 3 Certification
+Field & Service Specialist
+Level:
+Intermediate/Advanced
+Designed for:
+Field Technicians and Service Technicians
+Prerequisites:
+VuWall Level I Training
+Course Objectives
+1. Install, plan, configure, operate, and upgrade VuWall products.
+2. Understand networking considerations and requirements and perform level 2 troubleshooting.
+3. Manage backups and redundancy of the TRx Centralized Management Platform as well as handle updates and troubleshooting.
+Qualified VuWall Instructors
+Francisco Provencio
+Senior Sales Engineer
+Chris Benner
+Sales Engineer
+Jan Riegert
+Application Engineer
+Habib Jradi
+Application Engineer
+David Schlüter
+Application Engineer
+Diego Gudino
+Sr. Application Engineer
+Control what you see.
+sales@vuwall.com
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×

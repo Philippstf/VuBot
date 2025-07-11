@@ -1,0 +1,47 @@
+Milestone - TRx Plugin for XProtect | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+TRx Plugin for Milestone XProtect
+Increase Productivity and Reduce Response Times
+The VuWall plugin for Milestone XProtect® allows for seamless integration of TRx video wall management software within the Milestone XProtect® infrastructure, enabling control room operators to manage VuWall video wall processors, changing feeds and display content, directly from the already-familiar XProtect® SmartClient interface, without switching applications. Operators can easily control the video wall ecosystem including Milestone IP cameras, but also content from other sources such as IP encoders, web apps, web maps, RSS feeds, HDMI sources and computer sources, with easy drag-and-drop operations.
+This integration brings a comprehensive approach to security and surveillance.
+SOLUTION SHEET
+MILESTONE MARKETPLACE
+Talk to an Expert
+Centralized Management
+No Programming
+Expand Milestone Capabilities
+Simple Synchronization
+Architecture & Workflow
+milestone.com
+| Partner Integration
+sales@vuwall.com
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×

@@ -1,0 +1,145 @@
+TRx: Centralized Video Wall Management Platform | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+TRx Platform
+Centralized Video Wall Management Software
+Get a Quote
+Book a demo
+Video Wall Management & KVM Operations Made Simple
+TRx is unique in combining advanced multi-video wall management, KVM operations and AV distribution in a single platform. TRx is used to configure, manage and distribute virtually any source type to any display with an easy drag-and-drop and no programming.
+TRx Datasheet
+Interoperable
+Compatible with 3rd party brands. Supports H.264, H.265, SDVoE, SRT, and more.
+Ease of Use
+Easy drag & drop operations to configure & operate all your devices.
+Reduce Risk
+No programming required to reduce deployment time in the field.
+Flexible & Scalable
+Buy only what you need. TRx grows as your installation expands.
+Workflow
+Touch Panel Control
+Give operators the freedom to change layouts and control devices with a simple touch. Create fully customized panels quickly and easily without any programming skills.
+Learn more
+IP KVM Technology
+Share access to critical information between personal workstations, local displays, and the main control room video wall. Boost productivity and make faster decisions with PAK KVM capabilities.
+Learn more
+SOC 2 Certification
+We don’t compromise on security, especially when it comes to control rooms. The TRx management platform is fully SOC 2 Type II compliant. Our commitment to top-tier information security practices, policies, procedures, and operations has been independently audited and validated.
+Learn more
+Security
+VuWall is dedicated to maintaining the highest level of security for the company, its products, and services. With SOC 2 certification, TAA compliance, NDAA compliance, ISO 9001, AES encrypted video streams, and user rights management, VuWall delivers peace of mind.
+Learn more
+Awards
+TRx
+is the proud recipient of many industry awards. Recognized for drastically improving operator response times and efficiency with its flexible and easy-to-use platform, TRx is powering thousands of video walls in control rooms globally. VuWall is committed to creating AV-over-IP solutions that further the simplicity, scalability and interoperability that integrators and organizations require.
+Our innovation and hard work continues to meet and exceed the expectations our customers.
+We are grateful for this recognition.
+VIEW ALL AWARDS
+TRx Applications
+Control Rooms
+Video Wall Control & KVM
+Increasing productivity with powerful, easy to use technology.
+Enterprise
+Multi-Source Visualization
+Bringing efficiency to meeting rooms and Security Operations Centers with productive collaboration.
+Experience Centers
+Versatile Display Management
+Captivating visitors with unforgettable visual experiences.
+Crisis Rooms
+Unified Visualization
+Making rapid, accurate and informed decisions.
+Lobby Signage
+Content Management & Distribution
+Easily manage and distribute content throughout multi-site organizations.
+Classrooms & Auditoriums
+Presentation & Collaboration
+Engage audiences with captivating visual content.
+Advanced TRx Features
+Centralized Web-Based Management
+Manage and control the system with any standard browser from anywhere on the network. No software to install.
+Advanced Video Wall Management
+Control and manipulate content on any video wall with
+easy drag-and-drop.
+Open any source, move it, resize it, crop it or zoom. Send layouts to any other wall.
+Advanced Multi-Display Visualization
+Display pristine-quality content from any source to any display type, whether LCD, LED, or projector, of any size and any aspect ratios.
+Easy Drag-and-Drop
+Manage all AV experience through easy drag-and-drop, from source configuration and routing to advanced video wall management.
+IP KVM Control
+KVM devices can be fully integrated, controlled and used in TRx. Enhanced features include private mode and USB device switching.
+VMS Plugin for Genetec & Milestone
+Operators can manage video wall controllers and other AVoIP devices directly from Genetec Security Center or Milestone XProtect interfaces without switching applications
+Video Wall Stitching
+Build unlimited-sized video walls by stitching multiple PAK video wall nodes . The stitching feature brings an increased processing scalability, flexibility and redundancy.
+Source Management
+Manage all sources quickly and efficiently with intuitive UI. Sort, filter, preview mode, etc. Supports wide range of IP streams, HDMI, DP, and HD-SDI sources, Windows applications, screen captures, pictures, videos, websites, and documents.
+User Rights Management
+Administrators can fine-tune permissions to individual users or groups with or without Active Directory. Access restrictions can be set on floors, zones, sources and displays.
+Audio Management
+Manage audio controls for all encoders, decoders and video wall controllers including physical inputs and browsers.
+Powerful Scripting Tools
+Built-in tool to easily create custom macro-commands and automate a series of tasks such as commands to manipulate layouts and triggers or control external devices.
+Secure Data
+All data transmitted between the TRx web server and the HTML5 client is fully encrypted with TLS 1.2. Sources and IP streams are secured with 128-bit AES encryption. Proudly, SOC 2 certified.
+Carousel/Source Touring
+Ideal for security monitoring, the Carousel feature provides a designated window to show one source at a time for a specified amount of time before displaying the next source in the carousel list.
+Supported Devices
+TRx supports VuWall’s VuStream series of encoders, VuWall’s VuScape & PAK video wall processors, G&D KVM switches, Matrox Maevex, and SRT encoders/decoders.
+Redundancy & Availability
+Ensure full availability and control of your visualization infrastructure with redundancy and High Availability (HA) options.
+Get a demo
+Get a quote
+TRx Datasheet
+Complementary Solutions to TRx
+Need to process video wall content?
+PAK
+Video Wall & KVM Nodes
+Learn more
+Need to deliver content across your network?
+VuStream
+Encoders
+Learn more
+Need video wall control at your fingertips?
+ControlVu
+Touch Panel
+Learn more
+Automate monitoring with color detection
+Color Detection Server
+Learn more
+VuWall is proud to be a Preferred Vendor Partner of the PSNI Global Alliance
+Talk to a video wall expert! We’re here to help!
+CONTACT US
+VuWall and G&D are proudly operating under the same ownership. Learn more about G&D’s world-class KVM solutions.
+Visit G&D
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×
+Close
+Close
+Close

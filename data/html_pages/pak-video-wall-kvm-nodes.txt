@@ -1,0 +1,139 @@
+PAK 4K Video Wall Processor | Video Wall Controller | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+PAK Video Wall Processor
+Distributed Video Wall and KVM Nodes
+Get a Quote
+Book a demo
+Control your video wall and KVM station with distributed AV over IP
+PAK
+TM
+is a compact, cost-effective video wall processor that can function as a standalone unit or be stitched with additional processors to build KVM operator stations and IP video walls of any size. PAK’s distributed video wall technology makes it ideal for multi-room visualization, situational awareness, control rooms, and corporate workspaces.
+PAK Datasheet
+Demo
+Quote
+What is a Video Wall Processor?
+Here’s an in-depth look at how PAK simplifies modular video wall projects in AV-over-IP displays and control rooms. There is virtually no limit to the size of video wall that PAK can support without losing resolution.
+Book a Demo
+KVM
+Control of remote sources with low latency
+Secure
+High security. No Windows updates.
+Easy Maintenance
+Easy to replace. Easy to troubleshoot.
+High Performance
+Up to 8x 4K or 32x HD decodes per node
+Simple
+Easy to configure. Easy to install. Easy to manage.
+Versatile
+Utmost flexibility and scalability. One node. Endless possibilities.
+Reliable
+Minimized impact of failure. 24/7 dependability.
+Eco-Friendly
+Smaller footprint. Low power consumption.
+Centralized Management
+Manage all your PAK nodes with award-winning TRx software – a single, common platform to manage all your video wall and AV distribution ecosystem.
+Learn more about TRx.
+Multi-Format Decoding
+Decode a wide array of formats including H.264, VNC, NDI, proprietary streams and content from websites, dashboards, third-party SCADA, business analytics and social media feeds.
+Distributed IP KVM for Dynamic Control
+PAK KVM
+is a TRx feature that allows control room operators to manage IP sources with their keyboard and mouse from any personal station or local display.
+Touch Panel Control
+Give operators the freedom to change layouts and control devices with a simple touch. Create fully customized panels from TRx’s web-based control panel designer, quickly and easily, without any programming skills.
+Learn more
+or
+Watch Demo
+PAK Workflow
+PAK Applications
+Control Rooms
+Video Wall Control & KVM
+Increasing productivity with powerful, easy to use technology.
+Enterprise
+Multi-Source Visualization
+Bringing efficiency to meeting rooms and Security Operations Centers with productive collaboration.
+Experience Centers
+Versatile Display Management
+Captivating visitors with unforgettable visual experiences.
+Crisis Rooms
+Unified Visualization
+Making rapid, accurate and informed decisions.
+Lobby Signage
+Content Management & Distribution
+Easily manage and distribute content throughout multi-site organizations.
+Classrooms & Auditoriums
+Presentation & Collaboration
+Engage audiences with captivating visual content.
+Get a demo
+Get in touch
+PAK Datasheet
+Extend the Power of PAK
+Application Server
+Websites, Dashboards, Applications
+Learn more
+TRx
+Centralized Management
+Learn more
+VuStream
+Encoders
+Learn more
+Why PAK?
+PAK is a networked, multi-decode video wall processor that can operate as a standalone device or be stitched with other PAKs to build KVM operator stations and IP-based video walls that are infinitely scalable. PAK simplifies video wall deployments by reducing the number of connections and eliminating a single point of failure, reducing project risk, and offering improved reliability. PAK features four HDp60 outputs or one 4Kp60 output and multiformat decoding up to 32 HD streams per device.
+Interoperability in AV-over-IP Environments
+Using PAK for video wall processing in AV-over-IP environments delivers a seamless interoperability and visualization of IP content, simplifying workflows and reducing the amount of hardware required. PAK is unique in supporting open-standard signals such as H.264, NDI, and VNC, making it a true AV-over-IP video wall solution.
+PAK vs Traditional Video Wall Controllers
+A peek behind today’s video walls reveals what it takes to currently install them — an incredible amount of expensive hardware and lengthy cable runs snaking from overcrowded racks. In addition, they can take many hours to deploy, leading installers to ask: am I really profiting? VuWall has employed its years of video wall engineering expertise to define an innovative approach for deploying and managing video walls in AV-over-IP environments with the launch of PAK. PAK is a compact appliance that simplifies video wall deployments.
+Unlike traditional video wall systems, it’s extremely easy to build video walls with PAK. Whether the deployment is large or small, all that’s required are PAK appliances. To increase the size of a video wall, simply add a PAK. The only spare component needed to keep in stock is the PAK, reducing inventory costs and project complexity. Integrators can level up their service while greatly improving ROI for video wall installations of any size.
+While traditional video wall controllers lack the flexibility and simplicity to scale and integrate multiple displays, PAK video wall controllers are user-friendly and offer the ability to expand a video wall far easier than the traditional method while also being able to distribute and display
+any source on any display
+. Traditional video wall controllers often rely on complicated wiring, requiring a multitude of different connections, whereas PAK video wall systems require only a display source and power source, allowing for easy installation and maintenance. PAK video wall controllers also work independently from one another, if a single PAK node fails, only the displays connected to that node will fail, while the whole system continues to work.
+Centralized Management
+PAK features up to four HDp60 outputs or one 4Kp60 output and multiformat decoding up to 32 HD streams per device, including H.264, NDI, PNG, JPEG and VNC/remote desktops or virtualized browsers. As part of VuWall’s ecosystem, PAK is managed by the company’s award-winning
+TRx software platform
+. Easy to set up and configure, PAK is perfectly designed for multi-room visualization, situational awareness, control rooms and corporate workspaces. Its eco-friendly design boasts a compact form factor and low power consumption. PAK is small enough to be mounted behind monitors, saving rack space, and reducing extended video cable runs.
+Certifications & Awards
+PAK is fully certified with Samsung’s latest display technology,
+The Wall.
+View the latest certification of PAK with Samsung’s The Wall ensuring that PAK delivers a seamless interoperability and an optimized visualization experience with The Wall MicroLED Displays.
+PAK was launched at ISE 2022 and already picked up two “Best of Show” awards at
+ISE
+and
+InfoComm
+2022.
+VuWall is proud to be a Preferred Vendor Partner of the PSNI Global Alliance
+Talk to a video wall expert! We’re here to help!
+CONTACT US
+VuWall and G&D are proudly operating under the same ownership. Learn more about G&D’s world-class KVM solutions.
+Visit G&D
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×
+Close
+Close
+Close

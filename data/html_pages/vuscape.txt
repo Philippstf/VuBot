@@ -1,0 +1,136 @@
+Custom Video Wall Controllers | KVM Controller | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+VuScape
+Custom Video Wall Controller
+Get a Quote
+Book a demo
+1
+2
+3
+4
+Customized visualization solutions for professional applications.
+VuScape is a high performance video wall controller ideal for command centers, control rooms, and display signage. Easily control and distribute all content sources to any display on your network with the utmost flexibility and full-featured management software.
+VuScape Datasheet
+User Friendly
+Video wall control made easy. Our systems are easy to deploy, easy to use and easy to manage.
+Future Proof
+Open architecture, standards-based, and interoperable with 3rd party solutions.
+Dependability
+Optimized for real-time throughput providing reliable 24/7 operations.
+Modular & Scalable
+Only buy what you need. Our system can grow with you as your needs change.
+TRx for Easy Management
+Powerful software with endless ways to control and manage large screens. Intuitive and easy to use, it is simple to collaborate between multiple screens and operators.
+Bridging AV and IT
+All these sources can be captured into one system. This gives the freedom to display just anything, and thus close the gap between the different formats of sources.
+Big Data Visualization
+VuScape can display any kind of content coming from cloud/network based solutions such as websites, data, third party SCADA, business analytics and social media data.
+Touch Panel Control
+Give operators the freedom to change layouts and control devices with a simple touch. Create fully customized panels from our web-based control panel designer, quickly and easily, without any programming skills.
+Workflow
+Selecting the Right Controller
+VuScape
+VS10
+VS60
+VS120
+VS280
+VS640
+Ideal for
+Small video wall with limited space & network sources only
+Small video wall with
+limited space and
+need for GPU and
+decoding
+Midsize video wall with more inputs & outputs and need for GPU & more IP decoding power
+Midsize video wall with more inputs & outputs and need for GPU & more IP decoding power
+Large video wall with many inputs, outputs and IP decoding
+Form factor
+VESA Mount
+Tower
+Rackmount 4RU
+Rackmount 4RU
+Rackmount 4RU each
+Max outputs
+4x 4K
+4x 4K
+16x 4K
+16x 4K
+24x 4K or 48x HD
+Max inputs
+—
+4x 4K
+12x 4K
+24x 4K
+32x 4K and/or 64x HD
+Max simultaneous IP streams
+16x HD / 2x 4K
+16x HD / 4x 4K
+48x HD / 12x 4K
+96x HD / 24x 4K
+192x HD / 48x 4K
+Network sources
+RTSP, websites, VNC, pictures, text, video files
+RTSP, websites, VNC, pictures, text, video files
+RTSP, websites, VNC, pictures, text, video files
+RTSP, websites, VNC, pictures, text, video files
+RTSP, websites, VNC, pictures, text, video files
+Windows 10 application
+✔
+✔
+✔
+✔
+✔
+Get a demo
+Get a quote
+VuScape Datasheet
+Extend the Power of VuScape
+Need to manage several video walls?
+TRx
+Centralized Management
+Learn more
+Need video wall control at your fingertips?
+ControlVu
+Touch Panel
+Learn more
+Need to deliver content across your network?
+VuStream
+Encoders
+Learn more
+VuWall is proud to be a Preferred Vendor Partner of the PSNI Global Alliance
+Talk to a video wall expert! We’re here to help!
+CONTACT US
+VuWall and G&D are proudly operating under the same ownership. Learn more about G&D’s world-class KVM solutions.
+Visit G&D
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×
+Close
+Close
+Close

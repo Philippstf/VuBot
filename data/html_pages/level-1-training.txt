@@ -1,0 +1,69 @@
+VuWall Certification Training - Level 1 | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+Certification Training - Level 1
+Sign up for live online or in-person training and become a Certified VuWall Specialist.
+Duration: 1 day (8 hours)
+CTS RU Credits: 4
+SIGN UP
+Course Description
+Upon completion of this course, graduates will be able to present VuWall’s entire line of solutions to potential end users and assist in designing a video wall, IP KVM, and AV distribution project. The course includes thorough examples of customer installations and detailed training on both software and hardware features and functionalities. This 1-day course is broken down into several modules including management software, PAK distributed video wall & KVM nodes, custom video wall controllers, encoders & decoders, and extended features such as color detection, touch panel control, VMS integrations, and more. The course also includes understanding site requirements.
+This course will include a series of short quizzes that will require an 80% passing grade. Following a passing grade, trainees will receive a Certificate from VuWall that shall be submitted by the trainee to AVIXA in order to receive their CTS RU credits.
+Level I Certification
+VuWall Designer
+Level:
+Beginner
+Designed for:
+System Designers/Design Engineers, Technical Sales, AV/IT/Security Consultants
+Prerequisites:
+None
+Course Objectives
+Understand and present VuWall’s complete line of solutions, both hardware and software, along with their differentiators, benefits, and use cases.
+Design video wall, IP KVM, and AV distribution projects with VuWall solutions.
+Specify the right VuStream encoders and decoders, PAK and VuScape video wall processors, TRx Centralized Management System, along with other peripherals that may be required.
+SIGN UP
+Qualified VuWall Instructors
+Francisco Provencio
+Senior Sales Engineer
+Chris Benner
+Sales Engineer
+Jan Riegert
+Application Engineer
+Habib Jradi
+Application Engineer
+David Schlüter
+Application Engineer
+Diego Gudino
+Sr.Application Engineer
+SIGN UP
+Control what you see.
+sales@vuwall.com
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×

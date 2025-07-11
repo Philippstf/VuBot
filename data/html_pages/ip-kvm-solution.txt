@@ -1,0 +1,102 @@
+PAK KVM for Seamless IP KVM Control | VuWall
+This site uses cookies to ensure that you get the best online experience and to analyse our web traffic.
+Review Cookie Policy
+Accept
+Decline
+PAK KVM
+KVM Video Wall Control Over IP
+Get a Quote
+Book a demo
+IP KVM for Operators and Video Walls
+PAK
+KVM is a TRx feature, driven by PAK video wall & KVM nodes, allowing operators to control IP sources, using keyboard & mouse on their personal station and local displays. PAK KVM is ideal for multi-room visualization, situational awareness, control rooms, and remote operator environments.
+Get a Demo
+Get a Quote
+A simple solution to enable control room operators with the ultimate KVM experience
+All you need to enable your operators with low latency, seamless KVM control is VuWall VuStream 350 IP KVM encoders, the TRx Centralized Management Software and PAK Video Wall & KVM Nodes.
+VuStream 350
+Secure IP KVM Encoding
+Learn more
+TRx
+Centralized Management
+Learn more
+PAK
+Video Wall & KVM Nodes
+Learn more
+KVM
+Control of remote sources with low latency
+Secure
+High security. No Windows updates.
+Simple
+Easy to configure. Easy to install. Easy to manage.
+High Performance
+Up to 8x 4K or 32x HD decodes per node
+Centralized Management
+Manage all your PAK video wall and KVM nodes with award-winning TRx software – a single, common platform to manage all your video wall, KVM, and AV distribution ecosystem.
+Learn more about TRx.
+Secure IP KVM Encoding
+VuStream 350 IP KVM encoder securely delivers high-quality up to 4K video over standard Gigabit Ethernet at low bitrates and ultra-low latency and can transmit HDMI video and audio, as well as keyboard & mouse on an encrypted AES-256 signal.
+Learn more about VuStream 350
+PAK Video Wall & KVM Nodes
+PAK is a compact and cost-effective processing appliance that can work as a standalone unit or can be stitched to each other to build KVM operator stations and IP video walls of any size.
+Learn more.
+Touch Panel Control
+Give operators the freedom to change layouts and control devices with a simple touch. Create fully customized panels from TRx’s web-based control panel designer, quickly and easily, without any programming skills.
+Learn more
+or
+Watch Demo
+PAK KVM Workflow
+PAK KVM Applications
+Control Rooms
+Video Wall Control & KVM
+Increasing productivity with powerful, easy to use technology.
+Crisis Rooms
+Unified Visualization
+Making rapid, accurate and informed decisions.
+Get a demo
+Get a quote
+PAK Datasheet
+Why PAK KVM?
+Interactive Collaboration
+PAK KVM offers low latency for a smooth and seamless experience, allowing operators to control IP sources with their keyboard & mouse and share content with other operators – all with an intuitive easy-to-use platform, enhancing the operator experience and increasing productivity.
+Multiview with KVM
+Sources from remote PCs can be controlled with keyboard and mouse via IP KVM encoders such as VuStream 350. Those source can then be displayed alongside IP streams from encoders, cameras, or TV channels.
+Simplified Deployments
+Stitching PAK nodes together is an effortless way of creating KVM operator stations and IP video walls of any size. The Configuration Tool of PAK is user-friendly and helps in configuring the system by selecting tiling arrangements, setting bezel compensation, and configuring outputs and resolutions. This makes setting up your system much easier.
+Secure Access
+By utilizing password-protected KVM environments, installations can be safeguarded by restricting access and control of KVM systems to authorized users only. This security measure is crucial in preventing unauthorized access that could result in security breaches and other related incidents. Implementing password-protected KVM enables organizations to have better control over their IT system and achieve a higher level of security.
+VuWall is proud to be a Preferred Vendor Partner of the PSNI Global Alliance
+Talk to a video wall expert! We’re here to help!
+CONTACT US
+VuWall and G&D are proudly operating under the same ownership. Learn more about G&D’s world-class KVM solutions.
+Visit G&D
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+Close
+[ninja_form id=38]
+×
+[ninja_form id=34]
+×
+[ninja_form id=32]
+×
+[ninja_form id=27]
+×
+Close
+[ninja_form id=21]
+×
+[ninja_form id=18]
+×
+[ninja_form id=16]
+×
+[ninja_form id=14]
+×
+[ninja_form id=13]
+×
+Close
+Close
+Close
