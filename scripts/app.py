@@ -7,8 +7,8 @@ import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from ask_bot import ask_bot_with_context
-from database.supabase_service import supabase_chat_service
-from storage.device_id import get_device_id
+from vubot.database.supabase_service import supabase_chat_service
+from vubot.storage.device_id import get_device_id
 from dotenv import load_dotenv
 
 load_dotenv()
