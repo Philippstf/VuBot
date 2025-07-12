@@ -4,7 +4,7 @@ import streamlit as st
 import json
 from datetime import datetime
 from typing import List, Dict
-from .device_id import get_device_id
+from device_id import get_device_id
 
 class LocalChatManager:
     """Verwaltet Chat-Daten im Browser LocalStorage (Ersatz für SQLite)"""

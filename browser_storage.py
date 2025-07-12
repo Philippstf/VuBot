@@ -1,9 +1,9 @@
-# storage/browser_storage.py
+# browser_storage.py
 
 import streamlit as st
 import json
 from datetime import datetime
-from .device_id import get_device_id
+from device_id import get_device_id
 
 class BrowserChatStorage:
     """Browser LocalStorage Manager für Chat-Persistenz"""

@@ -8,8 +8,8 @@ import streamlit as st
 import uuid
 
 from ask_bot import ask_bot_with_context
-from .database.supabase_service import supabase_chat_service
-from .storage.device_id import get_device_id
+from supabase_service import supabase_chat_service
+from device_id import get_device_id
 from dotenv import load_dotenv
 
 load_dotenv()

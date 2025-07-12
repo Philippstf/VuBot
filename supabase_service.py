@@ -3,7 +3,7 @@
 import streamlit as st
 from typing import List, Dict, Optional
 from datetime import datetime
-from .supabase_client import supabase_client
+from supabase_client import supabase_client
 import uuid
 
 class SupabaseChatService:

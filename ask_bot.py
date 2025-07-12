@@ -126,7 +126,7 @@ def ask_bot_with_context(question: str, conversation_id: str = None) -> tuple[st
         import sys
         import os
         sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        from database.supabase_service import supabase_chat_service
+        from supabase_service import supabase_chat_service
         recent_messages = supabase_chat_service.get_recent_messages(conversation_id, limit=8)
         chat_history = [
             {"role": msg["role"], "content": msg["content"]} 
