@@ -1,10 +1,10 @@
-# scripts/app_chat.py
+# app.py
 
 import streamlit as st
 import uuid
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from ask_bot import ask_bot_with_context
 from database.supabase_service import supabase_chat_service
@@ -13,60 +13,246 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ─── Globales Dark-Mode-CSS ─────────────────────────────────────────────────────
+st.markdown("""
+<style>
+
+
+
+[data-testid="stChatInput"],
+[data-testid="stChatInput"] *,
+[data-testid="stChatInput"] *:focus,
+[data-testid="stChatInput"] *:focus-visible,
+[data-testid="stChatInput"] *:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* ─── Roter BaseWeb-Fokus weg ─── */
+/* 1. Unterdrücke alle standardmäßigen Outlines/Box-Shadows im inneren BaseWeb-Container */
+[data-testid="stChatInput"] [data-baseweb="textarea"],
+[data-testid="stChatInput"] [data-baseweb="textarea"] * {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Deaktiviere zusätzlich den BaseWeb-Fokusring auf dem inneren Wrapper */
+[data-testid="stChatInput"] > div:first-child {
+  outline: none !important;
+}
+
+/* ChatInput: Keine roten Outlines, Schatten oder Border beim Fokus/Active */
+textarea[data-testid="stChatInputTextArea"]:focus,
+textarea[data-testid="stChatInputTextArea"]:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #ffffff !important; /* bleibt weiß */
+}
+
+/* Submit-Button: Keine roten Effekte bei Hover, Fokus, Active */
+button[data-testid="stChatInputSubmitButton"]:hover,
+button[data-testid="stChatInputSubmitButton"]:focus,
+button[data-testid="stChatInputSubmitButton"]:active,
+button[data-testid="stChatInputSubmitButton"]:visited {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+/* App-Hintergrund & Text */
+[data-testid="stAppViewContainer"] {
+    background-color: #0e1117;
+    color: #e1e1e1;
+}
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #171924;
+    color: #e1e1e1;
+}
+/* Header (oben) */
+[data-testid="stHeader"] {
+    background-color: #0e1117;
+}
+/* Chat-Input-Feld */
+div[role="textbox"] {
+    background-color: #1e1f26 !important;
+    color: #e1e1e1 !important;
+    border: 1px solid #333 !important;
+}
+/* Buttons und Controls */
+.stButton>button, .stCheckbox>label, .stSelectbox>div, .stRadio>label {
+    color: #e1e1e1;
+    background-color: #1e1f26;
+    border: 1px solid #333;
+}
+/* Scrollbar (optional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+  [data-testid="stBottom"] *,
+  [data-testid="stChatInput"] * {
+    background-color: transparent !important;
+  }
+
+[data-testid="stChatInput"] > div:first-child {
+    box-shadow: inset 0 0 0 1px #ffffff !important;
+    border-radius: 24px !important;
+}
+
+  /* Weißer Input-Text */
+  textarea[data-testid="stChatInputTextArea"] {
+      color: #ffffff !important;
+  }
+  /* Weißer Placeholder (etwas gedämpft) */
+  textarea[data-testid="stChatInputTextArea"]::placeholder {
+      color: #aaaaaa !important;
+  }
+
+  /* Wrapper: entferne jeglichen Standard-Focus und setze nur deinen weiße Outline */
+  [data-testid="stChatInput"] > div:first-child {
+    outline: none !important;
+  }
+
+    /* Textarea: kein roter oder blauer Outline/Shadow beim Fokussieren */
+  textarea[data-testid="stChatInputTextArea"]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 2) Beim Fokussieren ausschließlich deinen weißen Inset-Rahmen anzeigen */
+[data-testid="stChatInput"] > div:first-child:focus-within {
+  box-shadow: inset 0 0 0 1px #ffffff !important;
+}
+
+
+/* ─── Responsive Header für Mobile ─── */
+@media (max-width: 600px) {
+  .vuwall-header-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+    text-align: center !important;
+  }
+  .vuwall-header-flex img {
+    margin: 0 auto 2px auto !important;
+    height: 56px !important;
+    display: block !important;
+    max-width: 80vw !important;
+  }
+  .vuwall-header-flex h1 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+    margin: 0 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.1 !important;
+  }
+}
+</style>
+""", unsafe_allow_html=True)
+
 # ─── Custom Chat Display Function ──────────────────────────────────────────────
 
-def display_chat_message(role, content, avatar_path=None):
-    """Zeigt eine Chat-Nachricht mit custom HTML/CSS"""
-    if role == "user":
-        # User message - rechts ausgerichtet, blau
-        st.markdown(f"""
-        <div style="display: flex; justify-content: flex-end; margin: 10px 0; align-items: flex-end;">
-            <div style="background: linear-gradient(135deg, #007ACC, #0056b3); color: white; 
-                        padding: 12px 16px; border-radius: 20px 20px 5px 20px; 
-                        max-width: 70%; margin-right: 8px; box-shadow: 0 2px 8px rgba(0,122,204,0.3);
-                        font-size: 14px; line-height: 1.4;">
-                {content}
-            </div>
-            <div style="width: 40px; height: 40px; background-color: #ff6b6b; border-radius: 50%; 
-                        display: flex; align-items: center; justify-content: center; 
-                        font-size: 18px; color: white; flex-shrink: 0;">
-                👤
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-    else:
-        # Assistant message - links ausgerichtet, grau
-        avatar_img = ""
-        if avatar_path:
-            avatar_img = f'<img src="data:image/png;base64,{get_base64_image(avatar_path)}" style="width: 30px; height: 30px; object-fit: contain;">'
-        else:
-            avatar_img = "🤖"
-            
-        st.markdown(f"""
-        <div style="display: flex; justify-content: flex-start; margin: 10px 0; align-items: flex-end;">
-            <div style="width: 40px; height: 40px; background-color: white; border-radius: 50%; 
-                        display: flex; align-items: center; justify-content: center; 
-                        border: 1px solid #ddd; flex-shrink: 0; margin-right: 8px;">
-                {avatar_img}
-            </div>
-            <div style="background: #f8f9fa; color: #2c3e50; 
-                        padding: 12px 16px; border-radius: 20px 20px 20px 5px; 
-                        max-width: 70%; border: 1px solid #e9ecef; 
-                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                        font-size: 14px; line-height: 1.4;">
-                {content}
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
 def get_base64_image(image_path):
-    """Konvertiert Bild zu base64 für HTML einbettung"""
+    """Konvertiert Bild zu base64 für HTML-Einbettung"""
     try:
         import base64
         with open(image_path, "rb") as img_file:
             return base64.b64encode(img_file.read()).decode()
     except:
         return ""
+
+def display_chat_message(role, content, avatar_path=None):
+    """Zeigt eine Chat-Nachricht mit custom HTML/CSS im Dark Mode"""
+    if role == "user":
+        st.markdown(f"""
+        <div style="
+            display: flex; 
+            justify-content: flex-end; 
+            margin: 10px 0; 
+            align-items: flex-end;
+        ">
+            <div style="
+                background: linear-gradient(135deg, #1f3a93, #34495e);
+                color: white;
+                padding: 12px 16px;
+                border-radius: 20px 20px 5px 20px;
+                max-width: 70%;
+                margin-right: 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+                font-size: 14px;
+                line-height: 1.4;
+            ">
+                {content}
+            </div>
+            <div style="
+                width: 40px; 
+                height: 40px; 
+                background-color: #e67e22; 
+                border-radius: 50%; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                font-size: 18px; 
+                color: white; 
+                flex-shrink: 0;
+            ">
+                👤
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        avatar_img = ""
+        if avatar_path:
+            avatar_img = f'<img src="data:image/png;base64,{get_base64_image(avatar_path)}" style="width: 30px; height: 30px; object-fit: contain;">'
+        else:
+            avatar_img = "🤖"
+
+        st.markdown(f"""
+        <div style="
+            display: flex; 
+            justify-content: flex-start; 
+            margin: 10px 0; 
+            align-items: flex-end;
+        ">
+            <div style="
+                width: 40px; 
+                height: 40px; 
+                background-color: #1e1f26; 
+                border-radius: 50%; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                border: 1px solid #333; 
+                flex-shrink: 0; 
+                margin-right: 8px;
+            ">
+                {avatar_img}
+            </div>
+            <div style="
+                background: #2e303e; 
+                color: #e1e1e1; 
+                padding: 12px 16px; 
+                border-radius: 20px 20px 20px 5px; 
+                max-width: 70%; 
+                border: 1px solid #333; 
+                box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                font-size: 14px; 
+                line-height: 1.4;
+            ">
+                {content}
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ─── Streamlit Konfiguration ────────────────────────────────────────────────────
 
@@ -78,30 +264,25 @@ st.set_page_config(
 
 # ─── Session State Initialisierung ──────────────────────────────────────────────
 
-# Device-ID für GDPR-konforme Identifikation
 if "device_id" not in st.session_state:
     st.session_state.device_id = get_device_id()
 
-# Session State für aktuellen Chat
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
 if "current_conversation" not in st.session_state:
     st.session_state.current_conversation = None
 
-# Supabase-Verbindung initialisieren
 if "supabase_initialized" not in st.session_state:
     with st.spinner("Verbindung zur Datenbank..."):
         if supabase_chat_service.ensure_connection():
             st.session_state.supabase_initialized = True
-            # Lade oder erstelle aktuelle Konversation
             conversation = supabase_chat_service.get_or_create_conversation(
                 device_id=st.session_state.device_id,
                 title="Neue Unterhaltung"
             )
             if conversation:
                 st.session_state.current_conversation = conversation
-                # Lade Messages der aktuellen Konversation
                 messages = supabase_chat_service.get_conversation_messages(conversation['id'])
                 st.session_state.messages = [
                     {"role": msg["role"], "content": msg["content"]}
@@ -116,11 +297,8 @@ if "supabase_initialized" not in st.session_state:
 # ─── Helper Functions ────────────────────────────────────────────────────────────
 
 def get_or_create_conversation():
-    """Holt oder erstellt eine Konversation (Supabase)"""
     if st.session_state.current_conversation:
         return st.session_state.current_conversation["id"]
-    
-    # Erstelle neue Konversation
     conversation = supabase_chat_service.get_or_create_conversation(
         device_id=st.session_state.device_id,
         title="Neue Unterhaltung"
@@ -131,7 +309,6 @@ def get_or_create_conversation():
     return None
 
 def load_conversation_messages(conversation_id: str):
-    """Lädt Nachrichten aus Supabase in Session State"""
     messages = supabase_chat_service.get_conversation_messages(conversation_id)
     st.session_state.messages = [
         {"role": msg["role"], "content": msg["content"]}
@@ -139,7 +316,6 @@ def load_conversation_messages(conversation_id: str):
     ]
 
 def save_message(role: str, content: str, embedding_context: str = None):
-    """Speichert eine Nachricht in Supabase"""
     if st.session_state.current_conversation:
         supabase_chat_service.add_message(
             conversation_id=st.session_state.current_conversation["id"],
@@ -148,8 +324,8 @@ def save_message(role: str, content: str, embedding_context: str = None):
             embedding_context=embedding_context
         )
 
+
 def start_new_conversation():
-    """Startet eine neue Konversation"""
     conversation = supabase_chat_service.create_conversation(
         device_id=st.session_state.device_id,
         title="Neue Unterhaltung"
@@ -159,45 +335,44 @@ def start_new_conversation():
         st.session_state.messages = []
 
 def generate_conversation_title(first_question: str) -> str:
-    """Generiert einen aussagekräftigen Titel basierend auf der ersten Frage"""
-    # Einfache Titel-Generierung - kann später durch LLM erweitert werden
     if len(first_question) > 50:
         return first_question[:47] + "..."
     return first_question
 
 # ─── UI Layout ───────────────────────────────────────────────────────────────────
 
-# Header mit VuWall Logo - Mobile Responsive
-st.markdown("""
-<style>
-@media (max-width: 768px) {{
-    .header-container {{
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-    }}
-    .header-container img {{
-        margin-right: 0 !important;
-        margin-bottom: 10px !important;
-        height: 50px !important;
-    }}
-    .header-container h1 {{
-        font-size: 2.2rem !important;
-    }}
-}}
-</style>
-<div class="header-container" style="display: flex; align-items: center; margin-bottom: 20px;">
-    <img src="data:image/webp;base64,{}" style="height: 60px; margin-right: 15px;">
-    <h1 style="margin: 0; color: white; font-size: 3.2rem; font-weight: bold;">KI-Chatbot</h1>
+# Header mit VuWall Logo
+st.markdown(f"""
+<div class="vuwall-header-flex" style="
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px;
+">
+    <img src="data:image/webp;base64,{get_base64_image('utils/VuWall_transparent.webp')}" 
+         style="height: 60px; margin-right: 15px;">
+    <h1 style="
+        margin: 0; 
+        color: #e1e1e1; 
+        font-size: 3.2rem; 
+        font-weight: bold;
+    ">
+        KI-Chatbot
+    </h1>
 </div>
-""".format(get_base64_image("utils/VuWall_transparent.webp")), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-st.markdown("Dein persönlicher Assistent für **VuWall**-Produkte und -Lösungen")
+if not st.session_state.messages:
+    st.markdown('<div class="vuwall-subtitle">Dein persönlicher Assistent für <b>VuWall</b>-Produkte und -Lösungen</div>', unsafe_allow_html=True)
 
 # Sidebar für Konversations-Management
 with st.sidebar:
-    # VuWall Logo in der Sidebar
-    st.image("utils/VuWall_transparent.webp", width=200)
+    st.markdown(
+        f'''
+        <img src="data:image/webp;base64,{get_base64_image('utils/VuWall_transparent.webp')}"
+             style="width: 200px; max-width: 100%; image-rendering: auto; display: block; margin: 0 auto;"/>
+        ''',
+        unsafe_allow_html=True
+    )
     st.markdown("---")
     st.header("💬 Unterhaltungen")
     
@@ -205,41 +380,30 @@ with st.sidebar:
         start_new_conversation()
         st.rerun()
     
-    # Zeige verfügbare Konversationen (Supabase)
-    conversations = supabase_chat_service.get_user_conversations(st.session_state.device_id, limit=10)
-    
+    conversations = supabase_chat_service.get_user_conversations(
+        st.session_state.device_id, limit=10
+    )
     if conversations:
         st.subheader("Letzte Chats")
         for conv in conversations:
-            # Zeige Konversation mit Button
-            button_text = conv["title"] or f"Chat {conv['id'][:8]}..."
-            if len(button_text) > 30:
-                button_text = button_text[:27] + "..."
-            
+            title = conv["title"] or f"Chat {conv['id'][:8]}..."
+            if len(title) > 30:
+                title = title[:27] + "..."
             is_current = (st.session_state.current_conversation and 
-                         conv["id"] == st.session_state.current_conversation["id"])
-            
+                          conv["id"] == st.session_state.current_conversation["id"])
             if st.button(
-                f"{'📍 ' if is_current else '💬 '}{button_text}",
+                f"{'📍 ' if is_current else '💬 '}{title}",
                 key=f"conv_{conv['id']}",
                 use_container_width=True,
                 type="primary" if is_current else "secondary"
             ):
-                # Wechsle zu dieser Konversation
                 st.session_state.current_conversation = conv
                 load_conversation_messages(conv["id"])
                 st.rerun()
     
-    # Storage-Info und Clear-Button
     st.markdown("---")
-    st.caption(f"🔒 Device: {st.session_state.device_id[:8]}...")
-    st.caption(f"🗄️ GDPR-konforme Supabase DB")
-    
-    # Storage Status
     total_chats = len(conversations)
     total_messages = len(st.session_state.messages)
-    st.caption(f"📊 {total_chats} Chat(s), {total_messages} Nachrichten")
-    
     if st.button("🗑️ Alle Chats löschen", use_container_width=True, type="secondary"):
         if supabase_chat_service.clear_all_conversations(st.session_state.device_id):
             st.session_state.current_conversation = None
@@ -249,56 +413,31 @@ with st.sidebar:
 
 # ─── Chat Interface ──────────────────────────────────────────────────────────────
 
-# Ensure we have a conversation
 conversation_id = get_or_create_conversation()
-
-# Load messages if not already loaded
 if not st.session_state.messages and st.session_state.current_conversation:
     load_conversation_messages(st.session_state.current_conversation["id"])
 
-# Display chat messages mit custom Styling
-for message in st.session_state.messages:
-    avatar_path = "utils/W_transparent.png" if message["role"] == "assistant" else None
-    display_chat_message(message["role"], message["content"], avatar_path)
+for msg in st.session_state.messages:
+    avatar = "utils/W_transparent.png" if msg["role"] == "assistant" else None
+    display_chat_message(msg["role"], msg["content"], avatar)
 
-# Chat input
-if prompt := st.chat_input("Stelle deine Frage zu VuWall..."):
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    display_chat_message("user", prompt)
-
-    # Generate bot response
+if user_input := st.chat_input("Stelle deine Frage zu VuWall..."):
+    st.session_state.messages.append({"role": "user", "content": user_input})
+    display_chat_message("user", user_input)
     with st.spinner("Antwort wird generiert..."):
         try:
-            # Use enhanced bot function with conversation context
-            answer, embedding_context = ask_bot_with_context(
-                question=prompt,
-                conversation_id=conversation_id
+            answer, ctx = ask_bot_with_context(
+                question=user_input, conversation_id=conversation_id
             )
-            
-            # Add assistant message to chat history
             st.session_state.messages.append({"role": "assistant", "content": answer})
             display_chat_message("assistant", answer, "utils/W_transparent.png")
-            
-            # Save both messages to database
-            save_message("user", prompt)
-            save_message("assistant", answer, embedding_context)
-            
-            # Update conversation title if this is the first message
-            if len(st.session_state.messages) == 2:  # user + assistant
-                title = generate_conversation_title(prompt)
-                supabase_chat_service.update_conversation_title(conversation_id, title)
-            
+            save_message("user", user_input)
+            save_message("assistant", answer, ctx)
+            if len(st.session_state.messages) == 2:
+                new_title = generate_conversation_title(user_input)
+                supabase_chat_service.update_conversation_title(conversation_id, new_title)
         except Exception as e:
-            error_msg = f"Entschuldigung, es ist ein Fehler aufgetreten: {str(e)}"
-            st.error(error_msg)
-            st.session_state.messages.append({"role": "assistant", "content": error_msg})
-            display_chat_message("assistant", error_msg, "utils/W_transparent.png")
-
-# ─── Footer ──────────────────────────────────────────────────────────────────────
-
-# st.markdown("---")
-# st.markdown(
-#        "💡 **Tipp:** Du kannst mehrere Fragen in einer Unterhaltung stellen. "
-#        "Der Bot erinnert sich an den Kontext eurer Unterhaltung!"
-#    )
+            err = f"Entschuldigung, ein Fehler ist aufgetreten: {e}"
+            st.error(err)
+            st.session_state.messages.append({"role": "assistant", "content": err})
+            display_chat_message("assistant", err, "utils/W_transparent.png")
