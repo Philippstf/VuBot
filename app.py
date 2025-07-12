@@ -1,13 +1,15 @@
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+print("sys.path:", sys.path)
+print("cwd:", os.getcwd())
+print("files:", os.listdir(os.getcwd()))
+
 import streamlit as st
 import uuid
-import sys
-import os
-# (Optional, falls du noch andere Imports aus scripts brauchst)
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from ask_bot import ask_bot_with_context
-from database.supabase_service import supabase_chat_service
-from storage.device_id import get_device_id
+from .database.supabase_service import supabase_chat_service
+from .storage.device_id import get_device_id
 from dotenv import load_dotenv
 
 load_dotenv()
