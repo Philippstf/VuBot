@@ -4,14 +4,12 @@ import streamlit as st
 import uuid
 import sys
 import os
-# Projekt-Root zum sys.path hinzufügen, damit vubot-Paket überall gefunden wird
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # (Optional, falls du noch andere Imports aus scripts brauchst)
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from ask_bot import ask_bot_with_context
-from vubot.database.supabase_service import supabase_chat_service
-from vubot.storage.device_id import get_device_id
+from database.supabase_service import supabase_chat_service
+from storage.device_id import get_device_id
 from dotenv import load_dotenv
 
 load_dotenv()
